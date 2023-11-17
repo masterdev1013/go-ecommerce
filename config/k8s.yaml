@@ -1,0 +1,31 @@
+version: 0.1.0
+base_dir: $PWD
+main_domain: "xxx"
+postgresql:
+  user: postgres
+  password: password
+  name: micro_ecommerce
+  port: 5434
+  sslmode: disable
+  host: minikube-host.default.svc.cluster.local
+rocketmq:
+  host: 192.168.65.2
+  name_server_port: 9876
+  broker_port: 10911
+kafka:
+  host: 192.168.65.2
+  port: 9092
+mongodb:
+  name: product
+  host: minikube-host.default.svc.cluster.local
+  port: 27018
+  user: root
+  password: "password"
+redis:
+  host: "minikube-host.default.svc.cluster.local"
+  password: "123456"
+  port: "6380"
+internal_server:
+  product: product
+tracing_endpoint: "http://jaeger-collector.istio-system.svc.cluster.local:14268/api/traces"
+jwt_secret: "secret"

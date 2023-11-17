@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "github.com/smiletrl/micro_ecommerce/service.product/internl/rpc/proto";
+
+package proto;
+
+// product service definition.
+service Product {
+  // given a sku id, and return its stock
+  rpc GetSkuStock (SkuID) returns(Stock){}
+
+  // given an array of sku ids, return their properties
+  rpc GetSkuProperties(SkuIDs) returns(SkuProperties){}
+}
+
+message SkuID {
+  string value = 1;
+}
+
+message SkuIDs {
+  repeated string value = 1;
+}
+
+message Stock {
+  int32 value = 1;
+}
+
+// stock, amount, title, attributes
+message SkuProperty {
+  string id = 1; // sku id
+  int32 stock = 2; // sku stock value
+  int32 price = 3; // sku price amount
+  string title = 4; // product title for this sku
+  string attributes = 5; // attributes used to describe this sku, such as color, size.
+  string thumbnail = 6; // thumbnail string
+}
+
+message SkuProperties {
+  repeated SkuProperty properties = 1;
+}

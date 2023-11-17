@@ -1,0 +1,59 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: cart-external
+  namespace: ${env}
+spec:
+  gateways:
+  - api-gateway
+  hosts:
+  - "*"
+  http:
+  - match:
+    - uri:
+        prefix: /api/v1/cart
+    route:
+    - destination:
+        host: cart
+        port:
+          number: 1325
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: customer-external
+  namespace: ${env}
+spec:
+  gateways:
+  - api-gateway
+  hosts:
+  - "*"
+  http:
+  - match:
+    - uri:
+        prefix: /api/v1/customer
+    route:
+    - destination:
+        host: customer
+        port:
+          number: 1325
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: product-external
+  namespace: ${env}
+spec:
+  gateways:
+  - api-gateway
+  hosts:
+  - "*"
+  http:
+  - match:
+    - uri:
+        prefix: /api/v1/product
+    route:
+    - destination:
+        host: product
+        port:
+          number: 1325

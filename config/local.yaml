@@ -1,0 +1,37 @@
+version: 0.1.0
+base_dir: $PWD
+main_domain: "xxx"
+postgresql:
+  user: postgres
+  password: password
+  name: micro_ecommerce
+  port: 5434
+  sslmode: disable
+  host: localhost
+rocketmq:
+  host: 127.0.0.1
+  name_server_port: 9876
+  broker_port: 10911
+kafka:
+  host: 192.168.65.2
+  port: 9092
+mongodb:
+  name: product
+  host: 127.0.0.1
+  port: 27018
+  user: root
+  password: "password"
+redis:
+  host: "127.0.0.1"
+  password: "123456"
+  port: "6380"
+internal_server:
+  product: localhost
+logger:
+  endpoint: "cn-shanghai.log.aliyuncs.com"
+  access_key_id: "xxx"
+  access_key_secret: "vvv"
+  project: "micro-ecommerce"
+  logstore: "micro-ecommerce"
+jwt_secret: "secret"
+migration_path: "/Users/smiletrl/go/src/github.com/smiletrl/micro_ecommerce/migrations"
